@@ -1,5 +1,5 @@
-# Job Layoff Data Cleaning Project (2019-2024)
-This project uses SQL to clean and prepare a job layoff dataset. The dataset captures a global snapshot of recent layoffs, reflecting the economic challenges tech firms face today. The dataset includes details such as the company, location, industry, number of employees laid off, percentage of layoffs, company stage, and funds raised. The primary focus is on creating a clean dataset by removing duplicates, handling missing values, standardizing data formats, and preparing the data for further analytical or visualization tasks.
+# Job Layoff Data Cleaning Project
+This project uses SQL to clean and prepare a dataset containing job layoff information from 2019 to 2024 for analysis. The dataset captures a global snapshot of recent layoffs, reflecting the economic challenges tech firms face today. The dataset includes details such as the company, location, industry, number of employees laid off, percentage of layoffs, company stage, and funds raised. The primary focus is on creating a clean dataset by removing duplicates, handling missing values, standardizing data formats, and preparing the data for further analytical or visualization tasks.
 
 # Data Cleaning Steps used in code
 The data cleaning process was performed using SQL and included the following steps:
