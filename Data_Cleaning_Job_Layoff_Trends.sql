@@ -94,10 +94,28 @@ FROM world_layoffs_latest.layoffs_staging2;
 ALTER TABLE world_layoffs_latest.layoffs_staging2
 MODIFY COLUMN `date` DATE;
 
+-- Converting total_laid_off column data type from 'text' to Integer (signed) - Identified in Data Exploration
+UPDATE world_layoffs_latest.layoffs_staging2 
+SET total_laid_off = NULL
+WHERE total_laid_off = '';
+
+SELECT total_laid_off
+FROM world_layoffs_latest.layoffs_staging2
+WHERE total_laid_off = '';
+
+-- With Update statement, only values in column are affected. To change the data type of col, use alter
+UPDATE world_layoffs_latest.layoffs_staging2 
+SET total_laid_off = CONVERT(total_laid_off, SIGNED)
+WHERE total_laid_off REGEXP '^[0-9]+$' AND total_laid_off IS NOT NULL;
+
+ALTER TABLE world_layoffs_latest.layoffs_staging2 
+MODIFY COLUMN total_laid_off INT;
+
+
 -- 3. Null Values and Blank Values.
 SELECT *
-FROM world_layoffs_latest.layoffs_staging2
-WHERE industry IS NULL or industry = '';  #company 'Appsmith' has blank industry
+FROM world_layoffs_latest.layoffs_staging2;
+-- WHERE industry IS NULL or industry = '';  #company 'Appsmith' has blank industry
 
 SELECT *
 FROM world_layoffs_latest.layoffs_staging2
